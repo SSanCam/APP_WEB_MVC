@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'banned'
     ];
 
     /**
@@ -43,6 +44,16 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'banned' => 'boolean',
         ];
     }
+
+    public function posts() {
+        return $this->hasMany(Post::class);
+    }
+    
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
+    
 }
