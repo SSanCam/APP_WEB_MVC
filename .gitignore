@@ -1,9 +1,0 @@
-/vendor
-/node_modules
-/storage
-/.env
-/.idea
-/.vscode
-/public/storage
-/.phpunit.result.cache
-phpunit.result.cache
