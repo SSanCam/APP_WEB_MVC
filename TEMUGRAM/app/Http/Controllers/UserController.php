@@ -24,9 +24,9 @@ class UserController extends Controller
                 'required',
                 'email',
                 'unique:users,email',
-                'regex:/^[A-Za-z][A-Za-z0-9]*@[A-Za-z][A-Za-z0-9]*\.[A-Za-z]{2,}$/'
+                'regex:/^[A-Za-z][A-Za-z0-9]+@[A-Za-z][A-Za-z]+\.[A-Za-z]{2,}$/'
             ],
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6|confirmed|regex:/[A-Za-z0-9]/',
         ]);
 
         User::create([
@@ -36,7 +36,7 @@ class UserController extends Controller
         ]);
 
         return redirect()->route('login')->with('success', 'Registro exitoso. Inicia sesión.');
-    }
+    } 
 
     // Muestra el formulario para el login
     public function loginForm()
